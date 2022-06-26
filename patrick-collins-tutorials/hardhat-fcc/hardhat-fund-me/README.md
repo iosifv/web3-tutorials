@@ -1,4 +1,9 @@
 # Notes
+- yarn hardhat test
+- yarn hardhat coverage
+- yarn hardhat deploy --tags mocks
+- yarn hardhat deploy
+- yarn hardhat deploy --network rinkeby
 
 # Deployments
 
