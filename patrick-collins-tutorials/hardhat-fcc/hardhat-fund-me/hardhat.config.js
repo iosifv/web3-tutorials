@@ -28,6 +28,12 @@ module.exports = {
             chainId: 4,
             blockConfirmations: 6,
         },
+        hardhat: {
+            accounts: {
+                count: 3,
+                accountsBalance: "10000000000000000000", // 10 ETH
+            },
+        },
     },
     gasReporter: {
         enabled: process.env.REPORT_GAS !== undefined,
