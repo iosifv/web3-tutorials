@@ -18,11 +18,11 @@ module.exports = {
         },
         rinkeby: {
             chainId: 4,
-            blockConfirmations:6,
+            blockConfirmations: 6,
             url: process.env.RINKEBY_RPC_URL,
-            accounts: [process.env.PRIVATE_KEY]
+            accounts: [process.env.PRIVATE_KEY],
         },
-    }
+    },
     solidity: "0.8.8",
     namedAccounts: {
         deployer: {

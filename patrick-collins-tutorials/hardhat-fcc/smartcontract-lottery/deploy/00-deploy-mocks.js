@@ -1,20 +1,25 @@
 const { network } = require("hardhat") // hre == Hardhat Runtime Environment
-const {} = require("../helper-hardhat-config")
+const { developmentChains } = require("../helper-hardhat-config")
 
-module.exports = async () => {
+// This is how much LINK it costs to run the VRF
+const BASE_FEE = ethers.utils.parseEther("0.25")
+// Link per gas
+const GAS_PRICE_LINK = 1e9
+
+module.exports = async ({ getNamedAccounts, deployments }) => {
     const { deploy, log } = deployments
     const { deployer } = await getNamedAccounts()
 
     if (developmentChains.includes(network.name)) {
         log("Local network detected! Deploying mocks...")
-        // The arguments of this contract are:
+        // Deploy a mock VRF coordinator:
         //  - number of decimals
         //  - answer to what is the initial price
-        await deploy("", {
+        await deploy("VRFCoordinatorV2Mock", {
             contract: "",
             from: deployer,
             log: true,
-            args: [],
+            args: [BASE_FEE, GAS_PRICE_LINK],
         })
         log("Mocks deployed!")
         log("---------------------------------------")
