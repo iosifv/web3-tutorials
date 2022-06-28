@@ -139,7 +139,7 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
               it("picks a winner, resets, and sends money", async () => {
                   // const additionalEntrances = 3
                   // const startingIndex = 2
-                  const additionalEntrants = 3
+                  const additionalEntrants = 6
                   const startingAccountIndex = 1 // Because deployer is account 0
                   const accounts = await ethers.getSigners()
 
