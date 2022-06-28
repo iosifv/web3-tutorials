@@ -6,6 +6,8 @@ require("hardhat-gas-reporter")
 require("hardhat-contract-sizer")
 require("dotenv").config()
 
+const PRIVATE_KEY = process.env.PRIVATE_KEY || "0x"
+
 /**
  * @type import('hardhat/config').HardhatUserConfig
  */
@@ -20,7 +22,16 @@ module.exports = {
             chainId: 4,
             blockConfirmations: 6,
             url: process.env.RINKEBY_RPC_URL,
-            accounts: [process.env.PRIVATE_KEY],
+            accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
+            saveDeployments: true,
+        },
+    },
+    etherscan: {
+        // yarn hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
+        apiKey: {
+            rinkeby: process.env.ETHERSCAN_API_KEY || "Your etherscan API key",
+            kovan: process.env.ETHERSCAN_API_KEY || "Your etherscan API key",
+            polygon: process.env.POLYGONSCAN_API_KEY || "Your polygonscan API key",
         },
     },
     gasReporter: {
@@ -42,6 +53,6 @@ module.exports = {
         },
     },
     mocha: {
-        timeout: 400000, // 400 seconds
+        timeout: 600000, // 10 minutes
     },
 }

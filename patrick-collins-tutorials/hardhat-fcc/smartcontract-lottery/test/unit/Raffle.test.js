@@ -137,9 +137,7 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
 
               // This test is too big...
               it("picks a winner, resets, and sends money", async () => {
-                  // const additionalEntrances = 3
-                  // const startingIndex = 2
-                  const additionalEntrants = 6
+                  const additionalEntrants = 3
                   const startingAccountIndex = 1 // Because deployer is account 0
                   const accounts = await ethers.getSigners()
 
@@ -225,6 +223,7 @@ const { developmentChains, networkConfig } = require("../../helper-hardhat-confi
                               //   await expect(raffle.getPlayer(0)).to.be.reverted
                               //   assert.equal(recentWinner.toString(), accounts[2].address)
                           } catch (e) {
+                              console.log(e)
                               reject(e)
                           }
                           resolve()

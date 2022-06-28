@@ -39,7 +39,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         interval,
     ]
     // use a mock when using localhost or tests
-    const fundMe = await deploy("Raffle", {
+    const raffle = await deploy("Raffle", {
         from: deployer,
         args: args,
         log: true,
@@ -47,6 +47,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
     })
 
     if (!developmentChains.includes(network.name) && process.env.ETHERSCAN_API_KEY) {
+        log("Verifying...")
         await verify(raffle.address, args)
     }
 
