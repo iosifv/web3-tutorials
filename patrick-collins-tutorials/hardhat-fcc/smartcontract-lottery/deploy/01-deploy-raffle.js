@@ -54,5 +54,3 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
 }
 
 module.exports.tags = ["all", "raffle"]
-
-// video @ 15:01:00

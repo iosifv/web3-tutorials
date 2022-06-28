@@ -23,6 +23,14 @@ module.exports = {
             accounts: [process.env.PRIVATE_KEY],
         },
     },
+    gasReporter: {
+        enabled: process.env.REPORT_GAS !== undefined,
+        // outputFile: "gas-report.txt",
+        // noColors: true,
+        currency: "USD",
+        coinmarketcap: process.env.COINMARKETCAP_API_KEY,
+        token: "ETH",
+    },
     solidity: "0.8.8",
     namedAccounts: {
         deployer: {
@@ -32,5 +40,8 @@ module.exports = {
         player: {
             default: 1,
         },
+    },
+    mocha: {
+        timeout: 400000, // 400 seconds
     },
 }
