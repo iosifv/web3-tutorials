@@ -1,9 +1,11 @@
 
 ## Commands
 
+```bash
 yarn create next-app .
 yarn run dev
-
+yarn add react react-dom moralis react-moralis
+```
 
 
 
