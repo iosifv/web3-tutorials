@@ -2,7 +2,7 @@
 ## Commands
 
 yarn create next-app .
-
+yarn run dev
 
 
 
