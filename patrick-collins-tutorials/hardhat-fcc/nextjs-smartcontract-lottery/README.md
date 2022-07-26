@@ -8,7 +8,8 @@ yarn add react react-dom moralis react-moralis
 ```
 
 
-
+run the new scripts for the blockchain from ../smartcontract-lottery
+yarn hardhat run scripts/mockOffchain.js --network localhost
 
 
 

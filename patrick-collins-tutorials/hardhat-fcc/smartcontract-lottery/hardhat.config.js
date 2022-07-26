@@ -17,6 +17,10 @@ module.exports = {
         hardhat: {
             chainId: 31337,
             blockConfirmations: 1,
+            accounts: {
+                count: 3,
+                accountsBalance: "10000000000000000000", // 10 ETH
+            },
         },
         rinkeby: {
             chainId: 4,

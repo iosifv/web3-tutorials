@@ -38,6 +38,10 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         callbackGasLimit,
         interval,
     ]
+
+    log("Deploying Raffle with arguments:")
+    log(args)
+
     // use a mock when using localhost or tests
     const raffle = await deploy("Raffle", {
         from: deployer,
