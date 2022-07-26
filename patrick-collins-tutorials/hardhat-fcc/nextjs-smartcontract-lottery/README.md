@@ -7,12 +7,21 @@ yarn run dev
 yarn add react react-dom moralis react-moralis
 ```
 
+### tailwind stuff
+```bash
+yarn add --dev tailwindcss postcss autoprefixer
+yarn tailwindcss init -p
+```
+install extension "PostCSS Language Support"
+install extension "Tailwind CSS IntelliSense"
+
 
 run the new scripts for the blockchain from ../smartcontract-lottery
 yarn hardhat run scripts/mockOffchain.js --network localhost
 
 
-
+## Deployment part
+https://youtu.be/gyMwXuJrbJQ?t=65609
 
 
 
