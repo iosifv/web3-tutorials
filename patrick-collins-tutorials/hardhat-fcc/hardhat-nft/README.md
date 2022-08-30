@@ -5,3 +5,4 @@
 3. Dynamic SVG NFT
 
 
+https://base64.guru/converter/encode/image/svg
