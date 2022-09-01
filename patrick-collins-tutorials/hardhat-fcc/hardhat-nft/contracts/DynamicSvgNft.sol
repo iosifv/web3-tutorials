@@ -30,7 +30,7 @@ contract DynamicSvgNft is ERC721 {
         i_priceFeed = AggregatorV3Interface(priceFeedAddress);
     }
 
-    function svgToSvgUri() public pure returns (string memory) {
+    function svgToSvgUri(string memory svg) public pure returns (string memory) {
         string memory svgBase64Encoded = Base64.encode(bytes(string(abi.encodePacked(svg))));
         return string(abi.encodePacked(base64EncodedSvgPrefix, svgBase64Encoded));
     }
@@ -71,7 +71,7 @@ contract DynamicSvgNft is ERC721 {
                                 '", "description":"An NFT which changes based on the Chainlink Feed"',
                                 '"attributes": [{"trait_type":"coolness", "value": 100}],',
                                 '"image":"',
-                                imageURI,
+                                imageUri,
                                 '"}'
                             )
                         )
