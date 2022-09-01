@@ -10,6 +10,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 error RandomIpfsNft__RanceOutOfBounds();
 error RandomIpfsNft__NeedMoreEthSent();
 error RandomIpfsNft__TransferFailed();
+error AlreadyInitialized();
 
 contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
     // Type Declaration
@@ -35,6 +36,7 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
     uint256 internal constant MAX_CHANCE_VALUE = 100;
     string[] internal s_dogTokenUris;
     uint256 internal i_mintFee;
+    bool private s_initialized;
 
     // Events
     event NftRequested(uint256 indexed requestId, address requester);
@@ -53,7 +55,7 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
         i_gasLane = gasLane;
         i_callbackGasLimit = callbackGasLimit;
         i_mintFee = mintFee;
-        // _initializeContract(dogTokenUris);
+        _initializeContract(dogTokenUris);
     }
 
     function requestNft() public payable returns (uint256 requestId) {
@@ -98,6 +100,14 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
         }
     }
 
+    function _initializeContract(string[3] memory dogTokenUris) private {
+        if (s_initialized) {
+            revert AlreadyInitialized();
+        }
+        s_dogTokenUris = dogTokenUris;
+        s_initialized = true;
+    }
+
     function getBreedFromModdedRng(uint256 moddedRng) public pure returns (Breed) {
         uint256 cumulativeSum = 0;
         uint256[3] memory chanceArray = getChanceArray();
@@ -120,6 +130,10 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
 
     function getDogTokenUris(uint256 index) public view returns (string memory) {
         return s_dogTokenUris[index];
+    }
+
+    function getInitialized() public view returns (bool) {
+        return s_initialized;
     }
 
     function getTokenCounter() public view returns (uint256) {

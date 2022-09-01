@@ -13,6 +13,7 @@ contract DynamicSvgNft is ERC721 {
     uint256 private s_tokenCounter;
     string private i_lowImageUri;
     string private i_highImageUri;
+
     string private constant base64EncodedSvgPrefix = "data:image/svg+xml;base64,";
     AggregatorV3Interface internal immutable i_priceFeed;
     mapping(uint256 => int256) public s_tokenIdToHighValue;
@@ -25,20 +26,20 @@ contract DynamicSvgNft is ERC721 {
         string memory highSvg
     ) ERC721("Dynamic SVG NFT", "DSN") {
         s_tokenCounter = 0;
-        i_lowImageUri = svgToSvgUri(lowSvg);
-        i_highImageUri = svgToSvgUri(highSvg);
+        i_lowImageUri = svgToImageURI(lowSvg);
+        i_highImageUri = svgToImageURI(highSvg);
         i_priceFeed = AggregatorV3Interface(priceFeedAddress);
     }
 
-    function svgToSvgUri(string memory svg) public pure returns (string memory) {
+    function svgToImageURI(string memory svg) public pure returns (string memory) {
         string memory svgBase64Encoded = Base64.encode(bytes(string(abi.encodePacked(svg))));
         return string(abi.encodePacked(base64EncodedSvgPrefix, svgBase64Encoded));
     }
 
     function mintNft(int256 highValue) public {
         s_tokenIdToHighValue[s_tokenCounter] = highValue;
-        s_tokenCounter = s_tokenCounter + 1;
         _safeMint(msg.sender, s_tokenCounter);
+        s_tokenCounter = s_tokenCounter + 1;
         emit CreatedNFT(s_tokenCounter, highValue);
     }
 

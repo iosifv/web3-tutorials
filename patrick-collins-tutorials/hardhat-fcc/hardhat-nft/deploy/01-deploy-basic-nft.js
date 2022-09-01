@@ -6,7 +6,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
     const { deploy, log } = deployments
     const { deployer } = await getNamedAccounts()
 
-    log("---------------------")
+    log("\nStarting Deploys...\n")
     const args = []
     const basicNft = await deploy("BasicNft", {
         from: deployer,

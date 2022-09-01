@@ -9,6 +9,12 @@ const metadataTemplate = {
     name: "",
     description: "",
     image: "",
+    attributes: [
+        {
+            trait_type: "Cuteness",
+            value: 100,
+        },
+    ],
 }
 
 tokenUris = [
@@ -23,7 +29,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
     const { deploy, log } = deployments
     const { deployer } = await getNamedAccounts()
     const chainId = network.config.chainId
-    let tokenUris
+
     /**
      * get the IPFS hashes of our images
      * 1. upload to your own IPFS node https://docs.ipfs.io/
@@ -48,7 +54,6 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
         subscriptionId = networkConfig[chainId].subscriptionId
     }
 
-    log("---------------------")
     await storeImages(imagesLocation)
     const args = [
         vrfCoordinatorV2Address,
@@ -58,6 +63,9 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
         tokenUris,
         networkConfig[chainId].mintFee,
     ]
+
+    // log("--- Deploying")
+    // log(args)
 
     const randomIpfsNft = await deploy("RandomIpfsNft", {
         from: deployer,
