@@ -8,9 +8,9 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 error RandomIpfsNft__RanceOutOfBounds();
-error RandomIpfsNft__NeedMoreEthSent();
+error RandomIpfsNft__NeedMoreETHSent();
 error RandomIpfsNft__TransferFailed();
-error AlreadyInitialized();
+error RandomIpfsNft__AlreadyInitialized();
 
 contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
     // Type Declaration
@@ -60,7 +60,7 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
 
     function requestNft() public payable returns (uint256 requestId) {
         if (msg.value < i_mintFee) {
-            revert RandomIpfsNft__NeedMoreEthSent();
+            revert RandomIpfsNft__NeedMoreETHSent();
         }
         requestId = i_vrfCoordinator.requestRandomWords(
             i_gasLane,
@@ -102,7 +102,7 @@ contract RandomIpfsNft is VRFConsumerBaseV2, ERC721URIStorage, Ownable {
 
     function _initializeContract(string[3] memory dogTokenUris) private {
         if (s_initialized) {
-            revert AlreadyInitialized();
+            revert RandomIpfsNft__AlreadyInitialized();
         }
         s_dogTokenUris = dogTokenUris;
         s_initialized = true;
