@@ -82,6 +82,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
 }
 
 async function handleTokenUris() {
+    tokenUris = []
     const { responses: imageUploadResponses, files } = await storeImages(imagesLocation)
     for (imageUploadResponseIndex in imageUploadResponses) {
         let tokenUriMetadata = { ...metadataTemplate }
