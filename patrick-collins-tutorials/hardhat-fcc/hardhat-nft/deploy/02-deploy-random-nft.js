@@ -54,14 +54,15 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
         subscriptionId = networkConfig[chainId].subscriptionId
     }
 
-    await storeImages(imagesLocation)
+    // await storeImages(imagesLocation)
+
     const args = [
         vrfCoordinatorV2Address,
         subscriptionId,
-        networkConfig[chainId].gasLane,
-        networkConfig[chainId].callbackGasLimit,
+        networkConfig[chainId]["gasLane"],
+        networkConfig[chainId]["mintFee"],
+        networkConfig[chainId]["callbackGasLimit"],
         tokenUris,
-        networkConfig[chainId].mintFee,
     ]
 
     // log("--- Deploying")

@@ -5,19 +5,19 @@ module.exports = async function ({ getNamedAccounts }) {
     const { deployer } = await getNamedAccounts()
 
     // Basic NFT
-    // const basicNft = await ethers.getContract("BasicNft", deployer)
-    // const basicNftTx = await basicNft.mintNft()
-    // await basicNftTx.wait(1)
-    // console.log("\n => Basic NFT index 0 has token URI: \n" + (await basicNft.tokenURI(0)))
+    const basicNft = await ethers.getContract("BasicNft", deployer)
+    const basicNftTx = await basicNft.mintNft()
+    await basicNftTx.wait(1)
+    console.log("\n => Basic NFT index 0 has token URI: \n" + (await basicNft.tokenURI(0)))
 
     // Random IPFS NFT
     const randomIpfsNft = await ethers.getContract("RandomIpfsNft", deployer)
     const mintFee = await randomIpfsNft.getMintFee()
-    console.log(mintFee.toString())
+    // console.log(mintFee.toString())
 
     const randomIpfsNftMintTx = await randomIpfsNft.requestNft({
         value: mintFee.toString(),
-        gasLimit: 585000,
+        gasLimit: 85000,
     })
     const randomIpfsNftMintTxReceipt = await randomIpfsNftMintTx.wait(1)
 

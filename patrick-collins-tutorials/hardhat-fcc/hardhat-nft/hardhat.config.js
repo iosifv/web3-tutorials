@@ -29,14 +29,21 @@ module.exports = {
             accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
             saveDeployments: true,
         },
+        goerli: {
+            chainId: 5,
+            blockConfirmations: 6,
+            url: process.env.GOERLI_RPC_URL,
+            accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
+            saveDeployments: true,
+        },
     },
     etherscan: {
         // yarn hardhat verify --network <NETWORK> <CONTRACT_ADDRESS> <CONSTRUCTOR_PARAMETERS>
         apiKey: {
             rinkeby: process.env.ETHERSCAN_API_KEY || "Your etherscan API key",
             kovan: process.env.ETHERSCAN_API_KEY || "Your etherscan API key",
-            polygon:
-                process.env.POLYGONSCAN_API_KEY || "Your polygonscan API key",
+            polygon: process.env.POLYGONSCAN_API_KEY || "Your polygonscan API key",
+            goerli: process.env.ETHERSCAN_API_KEY || "Your etherscan API key",
         },
     },
     gasReporter: {

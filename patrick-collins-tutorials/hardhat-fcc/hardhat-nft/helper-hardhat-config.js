@@ -13,6 +13,17 @@ const networkConfig = {
         mintFee: "10000000000000000", // 0.01 ETH
         ethUsdPriceFeedAddress: "0x8A753747A1Fa494EC906cE90E9f37563A8AF630e",
     },
+    5: {
+        name: "goerli",
+        vrfCoordinatorV2: "0x2Ca8E0C643bDe4C2E08ab1fA0da3401AdAD7734D",
+        entranceFee: ethers.utils.parseEther("0.01"),
+        gasLane: "0xd89b2bf150e3b9e13446986e571fb9cab24b13cea0a43ea20a6049a85cc807cc",
+        subscriptionId: "939",
+        callbackGasLimit: "500000",
+        interval: "30",
+        mintFee: "10000000000000000", // 0.01 ETH
+        ethUsdPriceFeedAddress: "0x8A753747A1Fa494EC906cE90E9f37563A8AF630e",
+    },
     31337: {
         name: "hardhat",
         entranceFee: ethers.utils.parseEther("0.3"),
