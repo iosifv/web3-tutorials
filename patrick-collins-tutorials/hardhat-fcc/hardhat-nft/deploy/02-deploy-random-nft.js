@@ -17,7 +17,7 @@ const metadataTemplate = {
     ],
 }
 
-tokenUris = [
+let tokenUris = [
     "ipfs://QmTtJcnFaomEYszhNdrxieE32NVxvHUYt3SmVQMZfCyA2F",
     "ipfs://QmRzAEg4fjcpiNusrhzQKjPKxCmcB1v9ff6iez1uZQSquZ",
     "ipfs://QmYuToBC37uf9HRdhJYca78CuLYZQLtbsNPzGVypQurtZk",
