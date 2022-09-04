@@ -5,10 +5,10 @@ module.exports = async function ({ getNamedAccounts }) {
     const { deployer } = await getNamedAccounts()
 
     // Basic NFT
-    const basicNft = await ethers.getContract("BasicNft", deployer)
-    const basicNftTx = await basicNft.mintNft()
-    await basicNftTx.wait(1)
-    console.log("\n => Basic NFT index 0 has token URI: \n" + (await basicNft.tokenURI(0)))
+    // const basicNft = await ethers.getContract("BasicNft", deployer)
+    // const basicNftTx = await basicNft.mintNft()
+    // await basicNftTx.wait(1)
+    // console.log("\n => Basic NFT index 0 has token URI: \n" + (await basicNft.tokenURI(0)))
 
     // Random IPFS NFT
     const randomIpfsNft = await ethers.getContract("RandomIpfsNft", deployer)
@@ -16,12 +16,12 @@ module.exports = async function ({ getNamedAccounts }) {
     // console.log(mintFee.toString())
 
     const randomIpfsNftMintTx = await randomIpfsNft.requestNft({
-        value: mintFee.toString()
+        value: mintFee.toString(),
     })
     const randomIpfsNftMintTxReceipt = await randomIpfsNftMintTx.wait(1)
 
     await new Promise(async (resolve, reject) => {
-        setTimeout(() => reject("Timeout: 'NFTMinted' event did not fire"), 300000) // 5 minute timeout time
+        setTimeout(() => reject("Timeout: 'NftMinted' event did not fire"), 300000) // 5 minute timeout time
         // setup listener for our event
         randomIpfsNft.once("NftMinted", async function () {
             resolve()
