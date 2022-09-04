@@ -28,6 +28,9 @@ module.exports = {
             url: process.env.RINKEBY_RPC_URL,
             accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
             saveDeployments: true,
+            allowUnlimitedContractSize: true,
+            gas: 2100000,
+            gasPrice: 8000000000
         },
         goerli: {
             chainId: 5,
@@ -35,6 +38,9 @@ module.exports = {
             url: process.env.GOERLI_RPC_URL,
             accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
             saveDeployments: true,
+            allowUnlimitedContractSize: true,
+            gas: 2100000,
+            gasPrice: 8000000000
         },
     },
     etherscan: {
