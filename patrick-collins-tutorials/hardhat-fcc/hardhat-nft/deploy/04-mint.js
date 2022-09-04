@@ -16,8 +16,7 @@ module.exports = async function ({ getNamedAccounts }) {
     // console.log(mintFee.toString())
 
     const randomIpfsNftMintTx = await randomIpfsNft.requestNft({
-        value: mintFee.toString(),
-        gasLimit: 85000,
+        value: mintFee.toString()
     })
     const randomIpfsNftMintTxReceipt = await randomIpfsNftMintTx.wait(1)
 

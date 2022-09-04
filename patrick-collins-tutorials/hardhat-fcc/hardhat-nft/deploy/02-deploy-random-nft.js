@@ -17,7 +17,7 @@ const metadataTemplate = {
     ],
 }
 
-tokenUris = [
+let tokenUris = [
     "ipfs://QmTtJcnFaomEYszhNdrxieE32NVxvHUYt3SmVQMZfCyA2F",
     "ipfs://QmRzAEg4fjcpiNusrhzQKjPKxCmcB1v9ff6iez1uZQSquZ",
     "ipfs://QmYuToBC37uf9HRdhJYca78CuLYZQLtbsNPzGVypQurtZk",
@@ -82,6 +82,7 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
 }
 
 async function handleTokenUris() {
+    tokenUris = []
     const { responses: imageUploadResponses, files } = await storeImages(imagesLocation)
     for (imageUploadResponseIndex in imageUploadResponses) {
         let tokenUriMetadata = { ...metadataTemplate }
