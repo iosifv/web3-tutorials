@@ -17,8 +17,8 @@ module.exports = async function ({ getNamedAccounts, deployments }) {
         ethUsdPriceFeedAddress = networkConfig[chainId].ethUsdPriceFeedAddress
     }
 
-    const lowSVG = await fs.readFileSync("./images/dynamicNft/frown.svg", { encoding: "utf8" })
-    const highSVG = await fs.readFileSync("./images/dynamicNft/happy.svg", { encoding: "utf8" })
+    const lowSVG = fs.readFileSync("./images/dynamicNft/frown.svg", { encoding: "utf8" })
+    const highSVG = fs.readFileSync("./images/dynamicNft/happy.svg", { encoding: "utf8" })
 
     args = [ethUsdPriceFeedAddress, lowSVG, highSVG]
 
