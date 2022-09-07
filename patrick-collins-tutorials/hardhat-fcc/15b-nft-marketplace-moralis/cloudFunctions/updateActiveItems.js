@@ -1,35 +1,35 @@
-console.log('hi from local')
+// This will be uploaded to Moralis.
+// No need to import Moralis since it will automatically injected in the cloud
 
-
-/*
 Moralis.Cloud.afterSave("ItemListed", async (request) => {
     const confirmed = request.object.get("confirmed")
     const logger = Moralis.Cloud.getLogger()
     logger.info("Looking for confirmed TX...")
     if (confirmed) {
         logger.info("Found item!")
+        // extend = create or grab table
         const ActiveItem = Moralis.Object.extend("ActiveItem")
 
         // In case of listing update, search for already listed ActiveItem and delete
-        const query = new Moralis.Query(ActiveItem)
-        query.equalTo("nftAddress", request.object.get("nftAddress"))
-        query.equalTo("tokenId", request.object.get("tokenId"))
-        query.equalTo("marketplaceAddress", request.object.get("address"))
-        query.equalTo("seller", request.object.get("seller"))
-        logger.info(`Marketplace | Query: ${query}`)
-        const alreadyListedItem = await query.first()
-        console.log(`alreadyListedItem ${JSON.stringify(alreadyListedItem)}`)
-        if (alreadyListedItem) {
-            logger.info(`Deleting ${alreadyListedItem.id}`)
-            await alreadyListedItem.destroy()
-            logger.info(
-                `Deleted item with tokenId ${request.object.get(
-                    "tokenId"
-                )} at address ${request.object.get(
-                    "address"
-                )} since the listing is being updated. `
-            )
-        }
+        // const query = new Moralis.Query(ActiveItem)
+        // query.equalTo("nftAddress", request.object.get("nftAddress"))
+        // query.equalTo("tokenId", request.object.get("tokenId"))
+        // query.equalTo("marketplaceAddress", request.object.get("address"))
+        // query.equalTo("seller", request.object.get("seller"))
+        // logger.info(`Marketplace | Query: ${query}`)
+        // const alreadyListedItem = await query.first()
+        // console.log(`alreadyListedItem ${JSON.stringify(alreadyListedItem)}`)
+        // if (alreadyListedItem) {
+        //     logger.info(`Deleting ${alreadyListedItem.id}`)
+        //     await alreadyListedItem.destroy()
+        //     logger.info(
+        //         `Deleted item with tokenId ${request.object.get(
+        //             "tokenId"
+        //         )} at address ${request.object.get(
+        //             "address"
+        //         )} since the listing is being updated. `
+        //     )
+        // }
 
         // Add new ActiveItem
         const activeItem = new ActiveItem()
@@ -111,4 +111,3 @@ Moralis.Cloud.afterSave("ItemBought", async (request) => {
         }
     }
 })
-*/
