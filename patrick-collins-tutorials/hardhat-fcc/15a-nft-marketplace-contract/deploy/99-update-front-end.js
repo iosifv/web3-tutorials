@@ -1,6 +1,6 @@
 const {ethers,network} = require("hardhat")
 const fs = require("fs")
-const frontendContractsFile = "../15-nft-marketplace-moralis/constants/networkMapping.json"
+const frontendContractsFile = "../15b-nft-marketplace-moralis/constants/networkMapping.json"
 
 module.exports = async function() {
     if (process.env.UPDATE_FRONTEND) {

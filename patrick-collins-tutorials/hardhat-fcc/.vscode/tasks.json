@@ -4,7 +4,7 @@
       {
         "label": "15-yarn-dev",
         "type": "shell",
-        "command": "cd 15-nft-marketplace-moralis && yarn dev",
+        "command": "cd 15b-nft-marketplace-moralis && yarn dev",
         "presentation": {
           "reveal": "always",
           "panel": "new",
@@ -15,7 +15,7 @@
       {
         "label": "15-moralis-sync",
         "type": "shell",
-        "command": "cd 15-nft-marketplace-moralis && yarn moralis:sync",
+        "command": "cd 15b-nft-marketplace-moralis && yarn moralis:sync",
         "presentation": {
           "reveal": "always",
           "panel": "new",
@@ -26,7 +26,7 @@
       {
         "label": "15-hh-node",
         "type": "shell",
-        "command": "cd 15-nft-marketplace-contract && hh node",
+        "command": "cd 15a-nft-marketplace-contract && hh node",
         "presentation": {
           "reveal": "always",
           "panel": "new",
