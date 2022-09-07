@@ -22,6 +22,9 @@ module.exports = {
                 accountsBalance: "10000000000000000000", // 10 ETH
             },
         },
+        localhost: {
+            chainId: 31337,
+        },
         rinkeby: {
             chainId: 4,
             blockConfirmations: 2,

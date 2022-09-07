@@ -1,0 +1,38 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "15-yarn-dev",
+        "type": "shell",
+        "command": "cd 15-nft-marketplace-moralis && yarn dev",
+        "presentation": {
+          "reveal": "always",
+          "panel": "new",
+          "group": "develop",
+        },
+        "runOptions": { "runOn": "folderOpen" }
+      },
+      {
+        "label": "15-moralis-sync",
+        "type": "shell",
+        "command": "cd 15-nft-marketplace-moralis && yarn moralis:sync",
+        "presentation": {
+          "reveal": "always",
+          "panel": "new",
+          "group": "develop",
+        },
+        "runOptions": { "runOn": "folderOpen" }
+      },
+      {
+        "label": "15-hh-node",
+        "type": "shell",
+        "command": "cd 15-nft-marketplace-contract && hh node",
+        "presentation": {
+          "reveal": "always",
+          "panel": "new",
+          "group": "develop",
+        },
+        "runOptions": { "runOn": "folderOpen" }
+      },
+    ]
+  }
