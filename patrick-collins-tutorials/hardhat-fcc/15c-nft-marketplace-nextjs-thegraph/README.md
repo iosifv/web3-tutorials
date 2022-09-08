@@ -1,5 +1,7 @@
 -   Link to part 3: https://youtu.be/gyMwXuJrbJQ?t=100647
--
+-   `yarn add @apollo/client`
+-   `yarn add graphql`
+-   Stuck at... https://youtu.be/gyMwXuJrbJQ?t=103625
 
 ## Nothing to compile
 

@@ -11,7 +11,7 @@
             }
         },
         {
-            "label": "15-script-mint-and-list-(local)",
+            "label": "15_contract-mint-and-list-(local)",
             "type": "shell",
             "command": "cd 15a-nft-marketplace-contract && hh run scripts/mint-and-list.js --network localhost",
             "presentation": {
@@ -22,7 +22,7 @@
             }
         },
         {
-            "label": "15-script-mint-and-list-(rinkeby)",
+            "label": "15_contract-mint-and-list-(rinkeby)",
             "type": "shell",
             "command": "cd 15a-nft-marketplace-contract && hh run scripts/mint-and-list.js --network rinkeby",
             "presentation": {
@@ -33,7 +33,7 @@
             }
         },
         {
-            "label": "15-script-cancel",
+            "label": "15_contract-cancel",
             "type": "shell",
             "command": "cd 15a-nft-marketplace-contract && hh run scripts/cancel.js --network localhost",
             "presentation": {
@@ -44,7 +44,7 @@
             }
         },
         {
-            "label": "15-script-buy",
+            "label": "15_contract-buy",
             "type": "shell",
             "command": "cd 15a-nft-marketplace-contract && hh run scripts/buy.js --network localhost",
             "presentation": {
@@ -55,7 +55,7 @@
             }
         },
         {
-            "label": "15-script-mine",
+            "label": "15_contract-mine",
             "type": "shell",
             "command": "cd 15a-nft-marketplace-contract && hh run scripts/mine.js --network localhost",
             "presentation": {
@@ -66,7 +66,7 @@
             }
         },
         {
-            "label": "15-watch-yarn-dev",
+            "label": "15_moralis-yarn-dev",
             "type": "shell",
             "command": "cd 15b-nft-marketplace-nextjs-moralis && yarn dev",
             "presentation": {
@@ -76,7 +76,7 @@
             }
         },
         {
-            "label": "15-watch-moralis-sync",
+            "label": "15_moralis-moralis-sync",
             "type": "shell",
             "command": "cd 15b-nft-marketplace-nextjs-moralis && yarn moralis:sync",
             "presentation": {
@@ -86,7 +86,7 @@
             }
         },
         {
-            "label": "15-moralis-cloud",
+            "label": "15_moralis-moralis-cloud",
             "type": "shell",
             "command": "cd 15b-nft-marketplace-nextjs-moralis && yarn moralis:cloud",
             "presentation": {
@@ -96,7 +96,7 @@
             }
         },
         {
-            "label": "15-watch-hh-node",
+            "label": "15_contract-hh-node",
             "type": "shell",
             "command": "cd 15a-nft-marketplace-contract && hh node",
             "presentation": {
@@ -106,7 +106,7 @@
             }
         },
         {
-            "label": "15-hh-deploy-frontend",
+            "label": "15_contract-hh-deploy-frontend",
             "type": "shell",
             "command": "cd 15a-nft-marketplace-contract && hh deploy --tags frontend --network localhost",
             "presentation": {
@@ -114,6 +114,16 @@
                 "panel": "new",
                 "group": "15-deploy",
                 "close": true
+            }
+        },
+        {
+            "label": "15_thegraph-yarn-dev",
+            "type": "shell",
+            "command": "cd 15c-nft-marketplace-nextjs-thegraph && yarn dev",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "group": "15-develop-watch-fe"
             }
         }
     ]
