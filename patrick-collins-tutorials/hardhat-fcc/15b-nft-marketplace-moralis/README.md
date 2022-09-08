@@ -27,4 +27,7 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 -   Do this in the contract folder `hh deploy --network localhost --tags frontend`
 -   `node addEvents.js`
 -   `yarn moralis:cloud`
--
+-   ...
+-   Can't figure out why
+-   stuck here https://youtu.be/gyMwXuJrbJQ?t=99446
+-   https://github.com/MoralisWeb3/react-moralis#useweb3contract
