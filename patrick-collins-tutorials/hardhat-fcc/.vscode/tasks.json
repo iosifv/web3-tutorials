@@ -68,7 +68,7 @@
         {
             "label": "15-watch-yarn-dev",
             "type": "shell",
-            "command": "cd 15b-nft-marketplace-moralis && yarn dev",
+            "command": "cd 15b-nft-marketplace-nextjs-moralis && yarn dev",
             "presentation": {
                 "reveal": "always",
                 "panel": "new",
@@ -78,7 +78,7 @@
         {
             "label": "15-watch-moralis-sync",
             "type": "shell",
-            "command": "cd 15b-nft-marketplace-moralis && yarn moralis:sync",
+            "command": "cd 15b-nft-marketplace-nextjs-moralis && yarn moralis:sync",
             "presentation": {
                 "reveal": "always",
                 "panel": "new",
@@ -88,7 +88,7 @@
         {
             "label": "15-moralis-cloud",
             "type": "shell",
-            "command": "cd 15b-nft-marketplace-moralis && yarn moralis:cloud",
+            "command": "cd 15b-nft-marketplace-nextjs-moralis && yarn moralis:cloud",
             "presentation": {
                 "reveal": "always",
                 "panel": "dedicated",
