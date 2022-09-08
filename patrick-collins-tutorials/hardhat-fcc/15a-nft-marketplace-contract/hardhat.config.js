@@ -21,13 +21,17 @@ module.exports = {
                 count: 3,
                 accountsBalance: "10000000000000000000", // 10 ETH
             },
+            gas: 5000000,
+            gasPrice: 8000000000,
         },
         localhost: {
             chainId: 31337,
+            gas: 5000000,
+            gasPrice: 8000000000,
         },
         rinkeby: {
             chainId: 4,
-            blockConfirmations: 2,
+            blockConfirmations: 6,
             url: process.env.RINKEBY_RPC_URL,
             accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
             saveDeployments: true,
@@ -37,7 +41,7 @@ module.exports = {
         },
         goerli: {
             chainId: 5,
-            blockConfirmations: 2,
+            blockConfirmations: 6,
             url: process.env.GOERLI_RPC_URL,
             accounts: PRIVATE_KEY !== undefined ? [PRIVATE_KEY] : [],
             saveDeployments: true,

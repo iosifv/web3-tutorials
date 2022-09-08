@@ -18,12 +18,13 @@ The `pages/api` directory is mapped to `/api/*`. Files in this directory are tre
 
 ## Notes
 
-- yarn add web3uikit moralis react-moralis
-- https://github.com/fatedier/frp/releases
-- ok, so I'm stuck here https://youtu.be/gyMwXuJrbJQ?t=91773
-- ...
-- `yarn global add moralis-admin-cli`
-- Do this in the contract folder `hh deploy --network localhost --tags frontend`
-- `node addEvents.js`
-- `yarn moralis:cloud`
-- 
+-   yarn add web3uikit moralis react-moralis
+-   https://github.com/fatedier/frp/releases
+-   ok, so I'm stuck here https://youtu.be/gyMwXuJrbJQ?t=91773
+-   ...
+-   https://v1docs.moralis.io/moralis-dapp/connect-the-sdk/connect-with-react
+-   `yarn global add moralis-admin-cli`
+-   Do this in the contract folder `hh deploy --network localhost --tags frontend`
+-   `node addEvents.js`
+-   `yarn moralis:cloud`
+-

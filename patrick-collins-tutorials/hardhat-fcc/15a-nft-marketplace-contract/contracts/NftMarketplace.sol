@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: MIT
+
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 
@@ -33,7 +34,7 @@ contract NftMarketplace is ReentrancyGuard {
         uint256 price
     );
 
-    event ItemCancelled(
+    event ItemCanceled(
         address indexed seller,
         address indexed nftAddress,
         uint256 indexed tokenId
@@ -143,7 +144,7 @@ contract NftMarketplace is ReentrancyGuard {
         isListed(nftAddress, tokenId)
     {
         delete (s_listings[nftAddress][tokenId]);
-        emit ItemCancelled(msg.sender, nftAddress, tokenId);
+        emit ItemCanceled(msg.sender, nftAddress, tokenId);
     }
 
     function updateListing(

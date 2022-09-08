@@ -5,14 +5,19 @@ const { verify } = require("../utils/verify")
 module.exports = async ({ getNamedAccounts, deployments }) => {
     const { deploy, log } = deployments
     const { deployer } = await getNamedAccounts()
+    const waitBlockConfirmations = developmentChains.includes(network.name)
+        ? 1
+        : VERIFICATION_BLOCK_CONFIRMATIONS
 
+    log("Starting deploy with wait block confirmations = " + waitBlockConfirmations)
     log("----------------------------------------------------")
+
     const arguments = []
     const nftMarketplace = await deploy("NftMarketplace", {
         from: deployer,
         args: arguments,
         log: true,
-        waitConfirmations: network.config.blockConfirmations || 1,
+        waitConfirmations: waitBlockConfirmations,
     })
 
     // Verify the deployment
@@ -20,6 +25,7 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         log("Verifying...")
         await verify(nftMarketplace.address, arguments)
     }
+
     log("----------------------------------------------------")
 }
 
