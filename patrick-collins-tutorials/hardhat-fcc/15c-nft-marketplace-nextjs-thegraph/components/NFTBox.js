@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState, useEffect } from "react"
 import { useWeb3Contract, useMoralis } from "react-moralis"
 import nftMarketplaceAbi from "../constants/NftMarketplace.json"
 import nftAbi from "../constants/BasicNft.json"
@@ -29,13 +29,26 @@ export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress,
     const hideModal = () => setShowModal(false)
     const dispatch = useNotification()
 
-    console.log(nftAddress, tokenId)
+    console.log("marketplaceAddress = " + marketplaceAddress)
+    console.log("nftAddress         = " + nftAddress)
+    console.log("tokenId            = " + tokenId)
 
     const { runContractFunction: getTokenURI } = useWeb3Contract({
         abi: nftAbi,
         contractAddress: nftAddress,
         functionName: "tokenURI",
         params: {
+            tokenId: tokenId,
+        },
+    })
+
+    const { runContractFunction: buyItem } = useWeb3Contract({
+        abi: nftMarketplaceAbi,
+        contractAddress: marketplaceAddress,
+        functionName: "buyItem",
+        msgValue: price,
+        params: {
+            nftAddress: nftAddress,
             tokenId: tokenId,
         },
     })
@@ -47,7 +60,6 @@ export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress,
         if (tokenURI) {
             // IPFS Gateway: A server that will return IPFS files from a "normal" URL.
             const requestURL = tokenURI.replace("ipfs://", "https://ipfs.io/ipfs/")
-            // Get the json from the url directly
             const tokenURIResponse = await (await fetch(requestURL)).json()
             const imageURI = tokenURIResponse.image
             const imageURIURL = imageURI.replace("ipfs://", "https://ipfs.io/ipfs/")
@@ -77,12 +89,11 @@ export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress,
             ? setShowModal(true)
             : buyItem({
                   onError: (error) => console.log(error),
-                  onSuccess: handleBuyItemSuccess,
+                  onSuccess: () => handleBuyItemSuccess(),
               })
     }
 
-    const handleBuyItemSuccess = async (tx) => {
-        await tx.wait(1)
+    const handleBuyItemSuccess = () => {
         dispatch({
             type: "success",
             message: "Item bought!",

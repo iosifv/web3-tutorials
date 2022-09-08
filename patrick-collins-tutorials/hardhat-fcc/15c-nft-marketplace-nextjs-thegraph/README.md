@@ -72,3 +72,16 @@ Updating frontend...
   '31337': { NftMarketplace: [ '0x5FbDB2315678afecb367f032d93F642f64180aa3' ] }
 }
 ```
+
+---
+
+TheGraph Error
+
+ERROR - 2022-09-08 06:34:09 p.m.
+Subgraph failed with non-deterministic error: failed to process trigger: block #7554504 (0x52e7…aef0), transaction 9869e001a5d536553742231bf4079d2012e4b496f505dbae0ec7f0f9a3fedde3: Entity ActiveItem[0x00x704dcfe4763080ac7014ba15e16a3494edfbe677]: missing value for non-nullable field `buyer` wasm backtrace: 0: 0x2d9b - <unknown>!generated/schema/ActiveItem#save 1: 0x36fa - <unknown>!src/nft-marketplace/handleItemListed , retry_delay_s: 240, attempt: 1
+
+INFO - 2022-09-08 06:34:09 p.m.
+Done processing trigger, gas_used: 0, data_source: NftMarketplace, handler: handleItemListed, total_ms: 1097, transaction: 0x9869…dde3, address: 0xdee9…fdc7, signature: ItemListed(indexed address,indexed address,indexed uint256,uint256)
+
+DEBUG - 2022-09-08 06:34:08 p.m.
+1 candidate trigger in this block, block_hash: 0x52e78333a7f180e22db83db439657b62852584b183c1e8ff366a01a59fefaef0, block_number: 7554504
