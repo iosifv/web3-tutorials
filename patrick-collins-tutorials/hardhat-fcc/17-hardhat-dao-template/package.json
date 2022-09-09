@@ -7,6 +7,7 @@
     "@types/chai": "^4.3.3",
     "@types/node": "^18.7.16",
     "ethers": "^5.7.0",
+    "fs": "^0.0.1-security",
     "hardhat": "^2.11.1",
     "hardhat-deploy": "^0.11.14",
     "ts-node": "^10.9.1",
